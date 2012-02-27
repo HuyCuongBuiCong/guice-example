@@ -10,7 +10,7 @@ import org.sooo.model.Receipt;
 import org.sooo.processor.CreditCardProcessor;
 import org.sooo.processor.PaypalCreditCardProcessor;
 
-public class RealBillingService implements BillingService {
+public class DirectConstructorCallBillingService implements BillingService {
 
 	@Override
 	public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {

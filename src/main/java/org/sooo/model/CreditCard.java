@@ -3,10 +3,10 @@ package org.sooo.model;
 public class CreditCard {
 
 	private String cardNumber;
-	private Integer expiryMonth;
-	private Integer expiryYear;
+	private int expiryMonth;
+	private int expiryYear;
 
-	public CreditCard(String cardNumber, Integer expiryMonth, Integer expiryYear) {
+	public CreditCard(String cardNumber, int expiryMonth, int expiryYear) {
 		this.cardNumber = cardNumber;
 		this.expiryMonth = expiryMonth;
 		this.expiryYear = expiryYear;
@@ -16,11 +16,11 @@ public class CreditCard {
 		return cardNumber;
 	}
 
-	public Integer getExpiryMonth() {
+	public int getExpiryMonth() {
 		return expiryMonth;
 	}
 
-	public Integer getExpiryYear() {
+	public int getExpiryYear() {
 		return expiryYear;
 	}
 }

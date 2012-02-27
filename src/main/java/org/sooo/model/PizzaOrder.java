@@ -2,13 +2,13 @@ package org.sooo.model;
 
 public class PizzaOrder {
 
-	private Integer amount;
+	private int amount;
 
-	public PizzaOrder(Integer amount) {
+	public PizzaOrder(int amount) {
 		this.amount = amount;
 	}
 
-	public Integer getAmount() {
+	public int getAmount() {
 		return amount;
 	}
 }

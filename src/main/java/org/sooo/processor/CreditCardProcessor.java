@@ -5,5 +5,5 @@ import org.sooo.model.CreditCard;
 
 public interface CreditCardProcessor {
 
-	ChargeResult charge(CreditCard creditCard, Integer amount);
+	ChargeResult charge(CreditCard creditCard, int amount);
 }
