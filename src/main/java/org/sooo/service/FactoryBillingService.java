@@ -11,8 +11,6 @@ import org.sooo.model.Receipt;
 import org.sooo.processor.CreditCardProcessor;
 
 public class FactoryBillingService implements BillingService {
-
-	@Override
 	public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {
 		CreditCardProcessor processor = CreditCardProcessorFactory
 				.getInstance();

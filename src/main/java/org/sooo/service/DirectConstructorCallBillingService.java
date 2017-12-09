@@ -12,7 +12,6 @@ import org.sooo.processor.PaypalCreditCardProcessor;
 
 public class DirectConstructorCallBillingService implements BillingService {
 
-	@Override
 	public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {
 		CreditCardProcessor processor = new PaypalCreditCardProcessor();
 		TransactionLog transactionLog = new DatabaseTransactionLog();

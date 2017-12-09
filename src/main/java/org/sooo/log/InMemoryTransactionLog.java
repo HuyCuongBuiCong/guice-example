@@ -10,15 +10,15 @@ public class InMemoryTransactionLog implements TransactionLog {
 
 	private boolean successLogged = false;
 
-	@Override
+	
 	public void logChargeResult(ChargeResult chargeResult) {
 		successLogged = chargeResult.wasSuccessful();
-		logger.info("logChargeResult(ChargeResult) called");
+		logger.info("logChargeResult() from InMemoryTransactionLog is called");
 	}
 
-	@Override
+
 	public void logConnectException(Throwable t) {
-		logger.info("logChargeResult(Throwable) called");
+		logger.info("logChargeResult(Throwable) from is called");
 	}
 
 	public boolean wasSuccessLogged() {

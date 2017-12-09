@@ -5,7 +5,6 @@ import org.sooo.model.CreditCard;
 
 public class SquareCreditCardProcessor implements CreditCardProcessor {
 
-	@Override
 	public ChargeResult charge(CreditCard creditCard, int amount) {
 		return new ChargeResult(false, "This is a square credit card.");
 	}

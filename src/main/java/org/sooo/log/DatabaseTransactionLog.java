@@ -8,12 +8,12 @@ public class DatabaseTransactionLog implements TransactionLog {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Override
+
 	public void logChargeResult(ChargeResult chargeResult) {
 		logger.info("logChargeResult(ChargeResult) called");
 	}
 
-	@Override
+
 	public void logConnectException(Throwable t) {
 		logger.info("logChargeResult(Throwable) called");
 	}
