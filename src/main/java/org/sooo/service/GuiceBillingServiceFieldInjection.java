@@ -18,12 +18,11 @@ public class GuiceBillingServiceFieldInjection implements BillingService {
 	@Inject
 	private  TransactionLog transactionLog;
 
-	public GuiceBillingServiceFieldInjection(CreditCardProcessor processor,
-			TransactionLog transactionLog) {
-		this.processor = processor;
-		this.transactionLog = transactionLog;
+	public GuiceBillingServiceFieldInjection() {
+	
 	}
 	
+	@Override
 	public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {
 		try {
 			ChargeResult result = processor.charge(creditCard,
