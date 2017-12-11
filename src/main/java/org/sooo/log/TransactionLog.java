@@ -7,4 +7,6 @@ public interface TransactionLog {
 	void logChargeResult(ChargeResult chargeResult);
 
 	void logConnectException(Throwable t);
+	
+	void logjdbcUrlAndThreadpoolSize();
 }

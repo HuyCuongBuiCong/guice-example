@@ -10,19 +10,24 @@ import org.sooo.processor.CreditCardProcessor;
 
 import com.google.inject.Inject;
 
-public class GuiceBillingService implements BillingService {
+public class GuiceBillingServiceMethodInjection implements BillingService {
 
-	private final CreditCardProcessor processor;
-	private final TransactionLog transactionLog;
+	private  CreditCardProcessor processor;
+	private  TransactionLog transactionLog;
 
-	@Inject
-	private GuiceBillingService(CreditCardProcessor processor,
-			TransactionLog transactionLog) {
-		this.processor = processor;
-		this.transactionLog = transactionLog;
+	public GuiceBillingServiceMethodInjection() {
 	}
-
-	@Override
+	
+	@Inject
+	public void setProcessor( CreditCardProcessor processor) {
+		this.processor = processor;
+	}
+	
+	@Inject
+	public void setTransactionLog(TransactionLog transactionLog) {
+		this.transactionLog = transactionLog;
+	}	
+	
 	public Receipt chargeOrder(PizzaOrder order, CreditCard creditCard) {
 		try {
 			ChargeResult result = processor.charge(creditCard,
@@ -38,4 +43,7 @@ public class GuiceBillingService implements BillingService {
 		}
 	}
 
+
+	
+	
 }

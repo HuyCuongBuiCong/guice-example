@@ -23,8 +23,16 @@
     <dependency>
     	<groupId>com.google.inject</groupId>
     	<artifactId>guice</artifactId>
-    	<version>3.0</version>
+    	<version>4.1.0</version>
     </dependency>
+
+	<!-- https://mvnrepository.com/artifact/com.google.inject.extensions/guice-assistedinject -->
+	<dependency>
+		<groupId>com.google.inject.extensions</groupId>
+		<artifactId>guice-assistedinject</artifactId>
+		<version>4.0</version>
+	</dependency>
+    
     <dependency>
     	<groupId>org.slf4j</groupId>
     	<artifactId>slf4j-simple</artifactId>
