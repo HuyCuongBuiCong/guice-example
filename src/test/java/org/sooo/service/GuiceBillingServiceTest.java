@@ -11,6 +11,7 @@ import org.sooo.model.PizzaOrder;
 import org.sooo.model.Receipt;
 import org.sooo.module.TestBillingModule;
 import org.sooo.module.TransactioLogWithProvideMethodModule;
+import org.sooo.module.TransactioLogWithProvideMethodModuleAndArgument;
 import org.sooo.processor.CreditCardProcessor;
 import org.sooo.processor.FakeCreditCardProcessor;
 import org.sooo.provider.DatabaseTransactionLogProvider;
@@ -58,6 +59,13 @@ public class GuiceBillingServiceTest {
 		TransactionLog transactionLog = injector.getInstance(TransactionLog.class);
 		transactionLog.logjdbcUrlAndThreadpoolSize();
 	}
+	
+	@Test
+	public void testDatabaseTransactionLogProvideMethodWithAgrument() {
+		Injector injector = Guice.createInjector(new TransactioLogWithProvideMethodModuleAndArgument());
+		TransactionLog transactionLog = injector.getInstance(TransactionLog.class);
+		transactionLog.logjdbcUrlAndThreadpoolSize();
+	}
 		
 	@Test
 	public void testDatabaseTransactionLogProvider() {
@@ -72,6 +80,24 @@ public class GuiceBillingServiceTest {
 		transactionLog.logjdbcUrlAndThreadpoolSize();
 	}
 	   
+	@Test
+	public void testAskGuiceBillingServiceForAProvider() {
+		Injector injector = Guice.createInjector(new AbstractModule() {
+			@Override
+			protected void configure() {
+				bind(TransactionLog.class).to(InMemoryTransactionLog.class);
+				bind(CreditCardProcessor.class).to(FakeCreditCardProcessor.class);
+				bind(BillingService.class).to(GuiceBillingServiceWithProvider.class);
+			}
+		});
+
+		BillingService billingService = injector.getInstance(BillingService.class);
+		Receipt receipt = billingService.chargeOrder(order, creditCard);
+
+		assertTrue(receipt.hasSuccessfulCharge());
+		assertEquals(100, receipt.getAmountOfCharge());
+	}
+	
 	@Test
 	public void testBasicInjectWithGuiceMethodInjection() {
 		Injector injector = Guice.createInjector(new AbstractModule() {
